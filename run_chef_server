@@ -1,0 +1,14 @@
+#!/bin/sh
+set -x
+sysctl -w kernel.shmmax=17179869184 # for postgres
+/opt/opscode/embedded/bin/runsvdir-start &
+
+if [ x"$(hostname)" != x"$(grep server_name /etc/opscode/chef-server-running.json | sed 's/.*\"\(.*\)\".*\"\(.*\)\".*/\2/')" ]; then
+	echo "Hostname changed, chef-server must be reconfigured"
+	chef-server-ctl reconfigure
+	# Wait for error
+	chef-server-ctl stop
+	chef-server-ctl reconfigure
+fi
+
+tail -F /opt/opscode/embedded/service/*/log/current
