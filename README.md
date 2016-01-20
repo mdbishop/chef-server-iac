@@ -14,5 +14,5 @@ To run the Chef Server container:
 docker run -d --privileged --p 443 chef:12.3.1
 ```
 ## What next
-For more information on managing the server via the Chef Server API, go here:
-https://docs.chef.io/api_chef_server.html
+
+For more information on managing the server via the Chef Server API, go [here](https://docs.chef.io/api_chef_server.html)
