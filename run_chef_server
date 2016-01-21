@@ -11,4 +11,5 @@ if [ x"$(hostname)" != x"$(grep server_name /etc/opscode/chef-server-running.jso
 	chef-server-ctl reconfigure
 fi
 
+ /usr/bin/chef-server-ctl start
 tail -F /opt/opscode/embedded/service/*/log/current
