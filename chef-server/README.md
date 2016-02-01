@@ -1,4 +1,4 @@
-# chef-server-iac
+# chef-server
 _Standalone Chef Server running in a Docker container_
 
 ## Build
